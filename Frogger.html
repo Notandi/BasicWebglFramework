@@ -1,0 +1,59 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+varying vec4 fColor;
+
+uniform vec4 vColor;
+uniform mat4 projection;
+uniform mat4 modelview;
+
+void main() 
+{
+    fColor = vColor;
+    gl_Position = projection * modelview * vPosition;
+} 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+   
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="PlyReader.js"></script>
+<script type="text/javascript" src="Ply.js"></script>
+<script type="text/javascript" src="Frogger.js"></script>
+
+<script type="text/javascript" src="Key.js"></script>
+<script type="text/javascript" src="Entitymanager.js"></script>
+<script type="text/javascript" src="Update.js"></script>
+<script type="text/javascript" src="Render.js"></script>
+
+<body>
+<div id="container">
+	<canvas id="gl-canvas" width="700" height="700" style="border: 1px solid black">
+	Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+	<p id="FT"></p>
+	<p id="FD"></p>
+	<p id="UU"></p>
+</div>
+</body>
+</html>
+
+
