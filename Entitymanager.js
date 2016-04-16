@@ -26,24 +26,34 @@ with suitable 'data' and 'methods'.
 var entityManager = {
 
 // "PRIVATE" DATA
-
+_player : [],
 
 // "PRIVATE" METHODS
 
+_forEachOf: function(aCategory, fn) {
+    for (var i = 0; i < aCategory.length; ++i) {
+        fn.call(aCategory[i]);
+    }
+},
+
 // PUBLIC METHODS
 
-
+KILL_ME_NOW : -1,
 // Some things must be deferred until after initial construction
 // i.e. thing which need `this` to be defined.
 //
 deferredSetup : function () {
-    this._categories = [];
+    this._categories = [this._player];
 },
 
+generatePlayer: function(){
+    this._player.push(new Player());
+},
 init: function() {
-    
+    this.generatePlayer();
 
 },
+
 
 update: function(du) {
 

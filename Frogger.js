@@ -137,42 +137,16 @@ window.onload = function init()
     gl.uniformMatrix4fv(pLoc, false, flatten(proj));
 
     
-
-    // Atburðaföll fyrir mús
-    /*canvas.addEventListener("mousedown", function(e){
-        movement = true;
-        origX = e.offsetX;
-        origY = e.offsetY;
-        e.preventDefault();         // Disable drag and drop
-    } );
-
-    canvas.addEventListener("mouseup", function(e){
-        movement = false;
-    } );
-
-    canvas.addEventListener("mousemove", function(e){
-        if(movement) {
-    	    spinY += (e.offsetX - origX) % 360;
-            spinX += (e.offsetY - origY) % 360;
-            origX = e.offsetX;
-            origY = e.offsetY;
-        }
-    } );*/
-    
     // Atburðafall fyrir lyklaborð
     window.addEventListener("keydown", handleKeydown);
     window.addEventListener("keyup", handleKeyup);
+
+    // Atburðafall fyrir músatburði
+    window.addEventListener("mousedown",handleMousedown);
+    window.addEventListener("mouseup",handleMouseup);
+    window.addEventListener("mousewheel",handleMousewheel);
+    window.addEventListener("mousemove",handleMousemove);
  
-
-    /*// Atburðafall fyri músarhjól
-     window.addEventListener("mousewheel", function(e){
-         if( e.wheelDelta > 0.0 ) {
-             eye[2] += 0.2;
-         } else {
-             eye[2] -= 0.2;
-         }
-     }  );  */
-
     entityManager.init();
     main.init();
 };
