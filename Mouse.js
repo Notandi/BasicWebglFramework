@@ -8,7 +8,8 @@ function handleMousewheel(evt){
 
 };
 function handleMousemove(evt){
-
+	console.log("eye " + eye);
+	console.log("at " + at);
 };
 
 

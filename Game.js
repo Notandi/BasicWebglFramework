@@ -9,7 +9,7 @@ var origX;
 var origY;
 
 
-var eye = vec3(0.0,1.0,-4.0);
+var eye = vec3(0.0,2.0,-4.0);
 var at = vec3(0.0,0.0,0.0);
 
 var proLoc;
