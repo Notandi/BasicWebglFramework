@@ -7,9 +7,28 @@ function handleMousedown(evt){
 function handleMousewheel(evt){
 
 };
+var prevClientX;
+var prevClientY;
 function handleMousemove(evt){
-	console.log("eye " + eye);
-	console.log("at " + at);
+    if (!prevClientX){
+        prevClientX = evt.clientX;
+    } if (!prevClientY){
+        prevClientY = evt.clientY;
+    } 
+    var currentPosX = evt.clientX;
+    var currentPosY = evt.clientY;
+
+
+
+
+    spinY += (prevClientX - currentPosX)%360;
+    spinX -= (prevClientY - currentPosY)%360;
+
+
+
+
+    prevClientX = currentPosX;
+    prevClientY = currentPosY;
 };
 
 

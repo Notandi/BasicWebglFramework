@@ -3,18 +3,34 @@ function Player(){
 };
 Player.prototype = new Entity();
 
+Player.prototype.Key_Forward = 'W'.charCodeAt(0);
+Player.prototype.Key_Backward = 'S'.charCodeAt(0);
+Player.prototype.Key_Left = 'A'.charCodeAt(0);
+Player.prototype.Key_Right = 'D'.charCodeAt(0);
 Player.prototype.cx = 0.0;
 Player.prototype.cy = 1.0;
 Player.prototype.cz = 0.0;
 
 Player.prototype.update = function(){
-	at = vec3(this.cx,this.cy,this.cz);
+    this.input();
+    at = vec3(this.cx,this.cy,this.cz);
+};
+Player.prototype.input = function(){
+    if(keys[this.Key_Forward]){
+    };
+    if(keys[this.Key_Backward]){
+    };
+    if(keys[this.Key_Left]){
+        this.cx--;
+    };
+    if(keys[this.Key_Right]){
+        this.cx++;
+    };
 };
 Player.prototype.render = function(){
+    
 	gl.bindBuffer( gl.ARRAY_BUFFER, playerBuffer );
 	var mv = lookAt( eye, at, vec3(0.0, 1.0, 0.0) );
-    mv = mult( mv, rotateX(spinX) );
-    mv = mult( mv, rotateY(spinY) );
 
     // færa hlut
     var mv1 = mv;

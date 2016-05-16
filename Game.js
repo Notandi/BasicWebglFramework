@@ -1,21 +1,6 @@
 var canvas;
 var gl;
 
-
-var movement = false;     // Er músarhnappur niðri?
-var spinX = 0;
-var spinY = 0;
-var origX;
-var origY;
-
-
-var eye = vec3(0.0,2.0,-4.0);
-var at = vec3(0.0,0.0,0.0);
-
-var proLoc;
-var mvLoc;
-
-
 var playerBuffer;
 var numPlayerVertices;
 
@@ -153,6 +138,7 @@ main.init = function () {
 
 function updateSimulation(du){
     entityManager.update(du);
+    camera.update();
 };
 function renderSimulation(gl){
     entityManager.render(gl);

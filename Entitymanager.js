@@ -27,6 +27,7 @@ var entityManager = {
 
 // "PRIVATE" DATA
 _player : [],
+_boxes : [],
 
 // "PRIVATE" METHODS
 
@@ -43,14 +44,18 @@ KILL_ME_NOW : -1,
 // i.e. thing which need `this` to be defined.
 //
 deferredSetup : function () {
-    this._categories = [this._player];
+    this._categories = [this._player,this._boxes];
 },
 
 generatePlayer: function(){
     this._player.push(new Player());
 },
+generateBoxes: function(){
+    this._boxes.push(new Box());
+},
 init: function() {
     this.generatePlayer();
+    this.generateBoxes();
 
 },
 
